@@ -1,0 +1,12 @@
+#!/bin/bash
+
+
+src_dir=/home/ubuntu/trainWithShubham/BashBlaze-7-Days-of-Bash-Scripting-Challenge/Challenges
+trgt_dir=/home/backup
+
+curr_time=$(date +"%d-%m-%y--%H-%M")
+
+echo "$curr_time"
+echo "back started for $curr_time"
+tar -cvf $trgt_dir/$curr_time.tar.gz $src_dir
+echo "backup completed"
