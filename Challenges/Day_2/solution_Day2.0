@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Upon execution without any command-line arguments, the script will display a welcome message
+if [ $# -eq 0 ]
+then
+    echo "Welcome to the Interactive File and Directory Explorer!"
+fi
+echo ""
+echo "Files and Directories in the Current Path:"
+echo ""
+
+# This command will print the name and size of files in human readable format.
+ls -lh | awk 'NR > 1 {print $9,"  ", "(",$5,")"}'
+echo ""
+
+# The input string will be stored in a variable named inputString.
+read -p "Enter a line of text (Press Enter without text to exit): " inputString
+
+
+# This while loop with take the input from the user continously and count the no. of characters
+# in the whole string  
+
+while [ "$inputString" != "" ] ; do
+
+      characterCount=${#inputString}
+      echo "The input string '$inputString' has '$characterCount' characters"
+      read -p "Enter a line of text (Press Enter without text to exit): " inputString
+done 
+
+echo ""
+
+# if no string passed thn it will exit with a message.
+echo " No input: Exiting the Interactive Explorer. Goodbye!"
