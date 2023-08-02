@@ -6,7 +6,7 @@ total_backup_allowed=3
 backup_present_at_folder=$( ls $backupAt | sort -V | wc -l )
 backup_to_be_removed=$(( $backup_present_at_folder - $total_backup_allowed ))
 if [[ $backup_to_be_removed -gt 0  ]]; then 
-       folder_to_be_deleted=$(( ls -l $backupAt | sort -V | head -n $backup_to_be_removed ))
+       folder_to_be_deleted=$(( ls $backupAt | sort -V | head -n $backup_to_be_removed ))
 
        for folder in $folder_to_be_deleted ;
            do
@@ -29,6 +29,7 @@ backup_dir="$tgt_dir/back_$curr_time"
 if [ $? -eq 0 ]; then
 	echo "Backup created successfully at: $tgt_dir"
 fi
+
 
 
 tar -cvf $backup_dir.tar.gz $src_dir
