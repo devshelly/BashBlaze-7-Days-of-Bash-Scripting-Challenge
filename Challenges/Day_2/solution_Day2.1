@@ -26,12 +26,10 @@ tgt_dir=$1
 curr_time=$(date +%Y%m%d%h%M%S)
 backup_dir="$tgt_dir/back_$curr_time"
 
-if [ $? -eq 0 ]; then
-	echo "Backup created successfully at: $tgt_dir"
-fi
-
-
 tar -cvf $backup_dir.tar.gz $src_dir
 
 rotation_backup $tgt_dir
  
+if [ $? -eq 0 ]; then
+        echo "Backup created successfully at: $tgt_dir"
+fi
