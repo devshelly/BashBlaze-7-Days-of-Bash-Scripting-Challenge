@@ -68,13 +68,12 @@ pass_change() {
 
 
 #function to list user account
-
 list_user_accounts() {
 	echo ""
 	echo -e "############################\n"
 	echo -e " LISTS OF ALL USER ACCOUNTS\n"
 	echo -e "############################\n"
-	awk -F: '{print NR,"Username: ", $1,"  ","UID: ", $3}' /etc/passwd 
+	awk -F: '{print NR, "Username: ", $1,"  ", "UID: ", $3}' /etc/passwd 
 }
 
 case $1 in 
@@ -83,6 +82,6 @@ case $1 in
 	-r|--reset) pass_change ;;
 	-l|--list) list_user_accounts ;;
 	-h|--help) usage_function ;;
-	*) echo "Invalid option: please pass "-h or --help" as argument for help"
+	*) echo "Invalid option: please pass "-h or --help" as an argument for help"
 esac
 
